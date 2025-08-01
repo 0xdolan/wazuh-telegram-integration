@@ -262,7 +262,7 @@ Or wait for a real SSH login alert to be sent to Telegram.
 
 ## 🚀 Result
 
-Receive real-time Telegram alerts for SSH logins and other critical events with detailed, nicely formatted messages — perfect for quick incident response.
+Receive real-time Telegram alerts for SSH logins and other critical events with detailed, nicely formatted messages, perfect for quick incident response.
 
 If you found this useful or have questions, feel free to comment. Happy monitoring! 👨‍💻📱
 
