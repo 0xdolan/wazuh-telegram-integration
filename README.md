@@ -2,6 +2,8 @@
 
 Wazuh is a robust open-source security platform, but it doesn't include native support for Telegram alerts. This guide walks you through a simple method to send alerts, like SSH login attempts, to Telegram using a custom integration script.
 
+![Wazuh Telegram Alert Sample](images/wazuh-telegram-alert-sample.jpg)
+
 ## 🛠️ Prerequisites
 
 - A Telegram bot and your chat ID ([official guide](https://core.telegram.org/bots#6-botfather), or use the quick setup below)
@@ -267,4 +269,3 @@ If you found this useful or have questions, feel free to comment. Happy monitori
 ---
 
 _Created with ❤️ by [0xdolan](mailto:0xdolan@gmail.com)_
-
