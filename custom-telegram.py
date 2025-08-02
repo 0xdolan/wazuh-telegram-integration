@@ -11,6 +11,9 @@ import requests
 bot_token = ""  # Replace with your Telegram bot token
 chat_id = ""  # Replace with your Telegram chat ID
 
+# === Excluded Wazuh Rule IDs ===
+excluded_rules: list = []  # Example: ["1002", "5715", "18107"]
+
 
 def escape_markdown_v2(text):
     if not isinstance(text, str):
@@ -33,6 +36,12 @@ def main():
     except Exception as e:
         print(f"[ERROR] Failed to read or parse alert JSON file: {e}")
         sys.exit(1)
+
+    rule_id = alert.get("rule", {}).get("id", None)
+
+    if rule_id in excluded_rules:
+        print(f"[INFO] Skipping excluded rule ID: {rule_id}")
+        sys.exit(0)
 
     # Extract fields
     data = alert.get("data", {})

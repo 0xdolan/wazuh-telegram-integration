@@ -94,8 +94,11 @@ from datetime import datetime
 import requests
 
 # Telegram Bot credentials
-bot_token = ""  # Replace with your Telegram bot token
-chat_id = ""    # Replace with your Telegram chat ID
+bot_token = "" # Replace with your Telegram bot token
+chat_id = "" # Replace with your Telegram chat ID
+
+# === Excluded Wazuh Rule IDs ===
+excluded_rules: list = []  # Example: ["1002", "5715", "18107"]
 
 
 def escape_markdown_v2(text):
@@ -119,6 +122,12 @@ def main():
     except Exception as e:
         print(f"[ERROR] Failed to read or parse alert JSON file: {e}")
         sys.exit(1)
+
+    rule_id = alert.get("rule", {}).get("id", None)
+
+    if rule_id in excluded_rules:
+        print(f"[INFO] Skipping excluded rule ID: {rule_id}")
+        sys.exit(0)
 
     # Extract fields
     data = alert.get("data", {})
@@ -247,7 +256,7 @@ This configuration overrides the level of rule ID 5715 and raises it to level 7,
 After making these changes, restart the Wazuh manager to apply them:
 
 ```bash
-systemctl restart wazuh-manager
+systemctl restart wazuh-manager.service
 ```
 
 ## ✅ Step 6: Test the Integration
