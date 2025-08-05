@@ -1,5 +1,7 @@
 # Wazuh 4.12 Telegram Alert Integration (with SSH Login Alerts)
 
+![Wazuh Telegram Integration](images/wazuh-telegram.jpg)
+
 Wazuh is a robust open-source security platform, but it doesn't include native support for Telegram alerts. This guide walks you through a simple method to send alerts, like SSH login attempts, to Telegram using a custom integration script.
 
 ![Wazuh Telegram Alert Sample](images/wazuh-telegram-alert-sample.jpg)
