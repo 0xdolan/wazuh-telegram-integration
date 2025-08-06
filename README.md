@@ -281,6 +281,10 @@ Test manually with an alert JSON file:
 
 Or wait for a real SSH login alert to be sent to Telegram.
 
+## Related Projects
+
+- [Wazuh Slack Integration](https://github.com/0xdolan/wazuh-slack-integration) – Send Wazuh alerts to Slack using a similar method.
+
 ## 🚀 Result
 
 Receive real-time Telegram alerts for SSH logins and other critical events with detailed, nicely formatted messages, perfect for quick incident response.
