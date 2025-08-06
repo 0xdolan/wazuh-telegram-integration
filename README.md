@@ -196,8 +196,18 @@ Wazuh calls shell scripts, so create a simple wrapper to call the Python script.
 **Location:** `/var/ossec/integrations/custom-telegram`
 
 ```bash
-#!/bin/bash
-/var/ossec/venv/bin/python3 /var/ossec/integrations/custom-telegram.py "$@"
+#!/bin/sh
+
+# Set the virtual environment Python binary
+CUSTOM_PYTHON="/var/ossec/venv/bin/python3"
+
+SCRIPT_PATH_NAME="$0"
+DIR_NAME="$(cd "$(dirname "${SCRIPT_PATH_NAME}")"; pwd -P)"
+SCRIPT_NAME="$(basename "${SCRIPT_PATH_NAME}")"
+PYTHON_SCRIPT="${DIR_NAME}/${SCRIPT_NAME}.py"
+
+# Run the integration script using custom Python interpreter
+${CUSTOM_PYTHON} "${PYTHON_SCRIPT}" "$@"
 ```
 
 Make both scripts executable and set proper ownership:
